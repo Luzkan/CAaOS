@@ -1,0 +1,2 @@
+--pedantic 	sprawdza składnie zgodnie z formatem ISO
+--wall		zabezpiecza przed kontrowersyjnymi zadaniami w programie

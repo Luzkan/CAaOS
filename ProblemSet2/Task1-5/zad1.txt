@@ -1,0 +1,8 @@
+/dev 		pliki odpowiedzialne za urządzenia systemu operacyjnego / administrator może montować i udostępniać urządzenia
+/proc 		wirtualny system plikow, informacje o systemie, interfejs kontroli i informacji dla jądra (zapisane procesy)
+
+
+sudo dd if=/dev/sda count=1 | hexdump -C
+
+cat /proc/cpuinfo
+cat /proc/meminfo

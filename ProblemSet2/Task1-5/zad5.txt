@@ -1,0 +1,6 @@
+mkinfo zad5	tworze potok
+cat > zad5	wpisuje
+cat < zad5	czyta
+cat < zad5	czyta
+
+dwa terminale, ktore czytają, powodują losowe wyświetlanie

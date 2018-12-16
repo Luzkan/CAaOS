@@ -1,0 +1,20 @@
+ps 		procesy w danym terminalu
+ps -u 		szczegółowo
+ps -ely		wszystkie procesy w systemie
+ps p <pid>	informacje o procesie
+ps axfj		informacje o procesach podpiętych do terminali w formie drzewka
+
+
+Legenda:
+
+PID: Unikatowy identyfikator procesu
+USER: Użytkownik, który wywołał proces
+TTY: Terminal na którym proces jest uruchomiony
+TIME: Czas trwania procesu
+%CPU: Zużycie procesora przez proces
+%MEM: Zużycie pamięci RAM przez proces
+VSZ: Pamięć do której proces może mieć dostęp
+RSS: Zaalokowana pamięć przez proces
+STAT: Informacje o stanie procesu
+START: Czas kiedy proces się zaczął
+COMMAND: Komenda użyta do wywołania tego procesu

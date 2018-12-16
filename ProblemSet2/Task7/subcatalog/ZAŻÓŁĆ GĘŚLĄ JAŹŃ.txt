@@ -1,0 +1,3 @@
+Polish Characters Test
+
+Folder contains three different filetypes and subcatalog to test stuff.
