@@ -1,0 +1,2 @@
+ls > p.txt
+wc < p.txt > t.txt

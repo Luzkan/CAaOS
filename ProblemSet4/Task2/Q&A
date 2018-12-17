@@ -1,0 +1,30 @@
+// http://man7.org/linux/man-pages/man2/kill.2.html
+// http://manpages.ubuntu.com/manpages/bionic/man1/kill.1.html
+
+// kill -l lists available signals
+
+// https://vagga.readthedocs.io/en/latest/pid1mode.html
+
+
+1. No - 9) SIGKILL makes it impossible. (2a.c)
+2. sudo kill -9 1 ---> well
+
+	By default root can't kill PID 1
+
+	The only signals that can be sent to process ID 1, the init process, are
+	those for which init has explicitly installed signal handlers.
+	This is done to assure the system is not brought down accidentally.
+	
+	// https://unix.stackexchange.com/questions/7441/can-root-kill-init-process
+
+	kill -SEGV 1 will cause kernel panic
+
+
+// sending multiple signals
+// https://stackoverflow.com/questions/29805676/sending-multiple-sigusr1-sigusr2-signals
+
+// singal que
+// https://stackoverflow.com/questions/5285414/signal-queuing-in-c
+
+	
+3. No - it can't send many signals w/o sleep. (2b.c)
