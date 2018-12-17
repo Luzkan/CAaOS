@@ -1,0 +1,93 @@
+Older code that didn't work, saving for future reference for my self:
+
+
+if [ $totalavg -gt 1000000 ]; then
+printf "%0.1f MB/s (average)\n" $(echo "scale=1; $totalavg/100000" | bc)
+elif [ $totalavg -gt 1000 ]; then
+printf "%0.1f KB/s (average)\n" $(echo "scale=1; $totalavg/100000" | bc)
+else
+printf "%i B/s (average)\n" "$totalavg"
+fi
+
+
+Fix that I didn't like:
+
+if [ $oldavg -gt 1000000 ]; then
+printf "|-|\tCurrent (MB/s): "
+(echo "scale=1; $oldavg/100000" | bc)
+elif [ $oldavg -gt 1000 ]; then
+printf "|-|\tCurrent (KB/s): "
+(echo "scale=1; $oldavg/1000"  | bc)
+else
+printf "|-|\tCurrent (B/s): " "$oldavg"
+fi
+
+
+
+Took me way too long to find out what's wrong... :(
+
+
+
+Battery status comments taken out to this file:
+
+#well, this looks awful, but its cute, thats my first 'line' of bash commands sequence.
+#that basically deletes all the descriptions and shows just values
+#morphs them from one column into one row with tr
+#prints with awt 
+#bonus: if laptop is plugged then there could be a possibility of diving by zero in the extra time label that I added
+#to avoid it I just smugged one little extra addition to avoid zero instead of doing if statements
+
+#trying to be serious with the task here and learn this thing
+#not just master the "ctrlc ctrl(shift)v" craft of the stackoverflow, heh
+
+
+#================================================================================ Lots of Stuff for Graph
+
+mmax="XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|XXXXXX"
+amax="XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|      "
+cmax="XXXXX|XXXXX|XXXXX|XXXXX|     |      "
+mmid="XXXXX|XXXXX|XXXXX|     |     |      "
+cmin="XXXXX|XXXXX|     |     |     |      "
+amin="XXXXX|     |     |     |     |      "
+mmin="     |     |     |     |     |      "
+
+
+newA=$(if [ $oldavg -gt 600000 ]; then
+printf "$mmax"
+elif [ $oldavg -gt 500000 ]; then
+printf "$mmax"
+elif [ $oldavg -gt 400000 ]; then
+printf "$mmax"
+elif [ $oldavg -gt 300000 ]; then
+printf "$mmid"
+elif [ $oldavg -gt 200000 ]; then
+printf "$cmin"
+elif [ $oldavg -gt 100000 ]; then
+printf "$amin"
+else
+printf "$mmin"
+fi) 
+
+
+printf "\n\n"
+printf "|-| t/MB | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6+ |\n"
+printf "|-|======|====================================|\n"
+printf "|-|  1s  |$newA|\n"
+printf "|-|  2s  |$newB|\n"
+printf "|-|  3s  |$newC|\n"
+printf "|-|  4s  |$newD|\n"
+printf "|-|  5s  |$newE|\n"
+printf "|-|  6s  |$newF|\n"
+printf "|-|  7s  |$newG|\n"
+printf "|-|  8s  |$newH|\n"
+printf "|-|======|====================================|\n"
+
+newH=$newG
+newG=$newF
+newF=$newE
+newE=$newD
+newD=$newC
+newC=$newB
+newB=$newA
+
+
