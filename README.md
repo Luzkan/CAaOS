@@ -30,3 +30,9 @@ Third Semester on Wroclaw University of Technology
     - Minitalk (server-client messenger w/o using threads and forks with simple login and private messages)
     - Matrix multiplication and optimalization of that proces
     - Creation of FAT and VFAT and then theory and then recover deleted files manually (theory)
+6. Problem Set
+    - Asm program for proc6502that prints 8-bit number in hex
+    - Asm program that looks up for primes in bounds from 1 to 10000
+    - Asm program that calculates simple stuff and prints it
+    - Asm program that that counts n! on 128bits
+    - Asm program that draws Mandelbrot set
