@@ -1,10 +1,9 @@
 segment .data
-newline: db "%d", 10, 0          ; <--- this thing right here
+    newline: db "%d", 10, 0      ; <--- this thing right here
 segment .bss                     ;      we need to send %d to printf and \n
-walk: resd 1                     ;      '10' stands for \n 
-factor: resd 1
+    walk: resd 1                 ;      '10' stands for \n 
+    factor: resd 1
 segment .text
-
     extern printf
     global find_primes
     
